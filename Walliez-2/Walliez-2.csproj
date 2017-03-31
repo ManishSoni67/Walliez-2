@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BAEFF3FD-19BF-4A18-9EDF-0777725C5A37}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Walliez_2</RootNamespace>
+    <AssemblyName>Walliez-2</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Walliez-2_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Walliez_2.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget />
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget />
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget />
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget />
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>B:\MultiMedia\Windows Phone SDK\Coding4Fun.Toolkit (Windows Phone 7)\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomUriMapper.cs" />
+    <Compile Include="Views\About_App.xaml.cs">
+      <DependentUpon>About_App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View Model\PictureAlbumVM.cs" />
+    <Compile Include="Views\About_Page.xaml.cs">
+      <DependentUpon>About_Page.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Views\BackgroundTaskInfo.xaml.cs">
+      <DependentUpon>BackgroundTaskInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PictureAlbum.xaml.cs">
+      <DependentUpon>PictureAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PicturesInfo.xaml.cs">
+      <DependentUpon>PicturesInfo.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="AGENCYR.TTF">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wallpapers\Special\Untitled-1.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.back.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.favs.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.next.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.questionmark.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.refresh.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\favs.addto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\feature.settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\feature.video.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Background%2899%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\DefNotiIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\WalliezDef.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\1371209805_save.png" />
+    <Content Include="Icons\photo.png" />
+    <Content Include="Icons\Picture Pallets.png" />
+    <Content Include="Icons\right_arrow.png" />
+    <Content Include="Icons\save.png" />
+    <Content Include="Icons\search.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Views\1367358599_facebook_circle_color.png" />
+    <Content Include="Views\1367358634_google_circle_color.png" />
+    <Content Include="Views\1367358969_72-windows8.png" />
+    <Content Include="Views\AboutBackgrnd.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Logo.png" />
+    <Content Include="Walliez App Icon.png" />
+    <Content Include="Wallpapers\EarthSpace\Image %281%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2810%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2811%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2812%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2813%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2814%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2815%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2816%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2817%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2818%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2819%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %282%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2820%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2821%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2822%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2823%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2824%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2825%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2826%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2827%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2828%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2829%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %283%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2830%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2831%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2832%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2833%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2834%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2835%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2836%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2837%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2838%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2839%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %284%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2840%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2841%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2842%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2843%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2844%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2845%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2846%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2847%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2848%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2849%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %285%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %2850%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %286%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %287%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %288%29.jpg" />
+    <Content Include="Wallpapers\EarthSpace\Image %289%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %281%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2810%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2811%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2812%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2813%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2814%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2815%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2816%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2817%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2818%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2819%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %282%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2820%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2821%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2822%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2823%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2824%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2825%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2826%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2827%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2828%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2829%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %283%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2830%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2831%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2832%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2833%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2834%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2835%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2836%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2837%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2838%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2839%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %284%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2840%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2841%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2842%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2843%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2844%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2845%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2846%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2847%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2848%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2849%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %285%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2850%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2851%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2852%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2853%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2854%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2855%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2856%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2857%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2858%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2859%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %286%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2860%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2861%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2862%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2863%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2864%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2865%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2866%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2867%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2868%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2869%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %287%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2870%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2871%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2872%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2873%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2874%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2875%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2876%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2877%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2878%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2879%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %288%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2880%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %2881%29.jpg" />
+    <Content Include="Wallpapers\Games\Image %289%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %281%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %281%29.png" />
+    <Content Include="Wallpapers\Nature\Image %2810%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2811%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2812%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2813%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2814%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2815%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2816%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2817%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2818%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2819%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %282%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2820%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2821%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2822%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2823%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2824%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2825%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2826%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2827%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2828%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2829%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %283%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2830%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2831%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2832%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2833%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2834%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2835%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2836%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2837%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2838%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2839%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %284%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2840%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2841%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2842%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2843%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2844%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2845%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2846%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2847%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2848%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2849%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %285%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %2850%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %286%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %287%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %288%29.jpg" />
+    <Content Include="Wallpapers\Nature\Image %289%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %281%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2810%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2811%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2812%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2813%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2814%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2815%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2816%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2817%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2818%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2819%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %282%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2820%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2821%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2822%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2823%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2824%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2825%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2826%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2827%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2828%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2829%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %283%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2830%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2831%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2832%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2833%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2834%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2835%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2836%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2837%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2838%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2839%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %284%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2840%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2841%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2842%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2843%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2844%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2845%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2846%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2847%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2848%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2849%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %285%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2850%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2851%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2852%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2853%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2854%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2855%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2856%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2857%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2858%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2859%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %286%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2860%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2861%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2862%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2863%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2864%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2865%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2866%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2867%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2868%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2869%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %287%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2870%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2871%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2872%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2873%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2874%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2875%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2876%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2877%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2878%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2879%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %288%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2880%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2881%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2882%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2883%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2884%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2885%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2886%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2887%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2888%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2889%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %289%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2890%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2891%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2892%29.jpg" />
+    <Content Include="Wallpapers\Special\Image %2893%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Walliez.BackgroundTasks\Walliez.BackgroundTasks.csproj">
+      <Project>{8069BFD2-7FEE-4E6A-8A3F-45ED7CCF8AD7}</Project>
+      <Name>Walliez.BackgroundTasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Walliez.DAL\Walliez.DAL.csproj">
+      <Project>{B10FE120-7127-4EC5-8EE1-3578242E7FDF}</Project>
+      <Name>Walliez.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Walliez.Model\Walliez.Model.csproj">
+      <Project>{464787E3-0A9B-4629-A8E9-41DF6C474170}</Project>
+      <Name>Walliez.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\About_App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Content Include="Views\About_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Page Include="Views\BackgroundTaskInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PictureAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PicturesInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1374399894_dialog-cancel.png" />
+    <Resource Include="1374399923_save.png" />
+    <Content Include="Assets\AppBar\appbar.save.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="1374695000_Netvibes.png" />
+    <Resource Include="Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\WindowsPhone\v8.0\Microsoft.Expression.Blend.WindowsPhone.targets" />
+</Project>

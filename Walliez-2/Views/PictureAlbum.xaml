@@ -1,0 +1,198 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Walliez_2" xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls" xmlns:Converters="clr-namespace:Coding4Fun.Toolkit.Controls.Converters;assembly=Coding4Fun.Toolkit.Controls" x:Name="PhotoAlbum"
+    x:Class="Walliez_2.PictureAlbum"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+	<phone:PhoneApplicationPage.Resources>
+		<Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<Storyboard x:Name="Str_ImageSaved">
+			<DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.3" Storyboard.TargetName="Grd_ImageSaveStatus" Storyboard.TargetProperty="Opacity" From="0.01" To="1" />
+			</Storyboard>
+			
+		<Storyboard x:Name="Str_ImageSavedHide">
+			<DoubleAnimation BeginTime="0:0:3" Duration="0:0:0.6" Storyboard.TargetName="Grd_ImageSaveStatus" Storyboard.TargetProperty="Opacity" From="1" To="0" />
+			</Storyboard>
+		<Storyboard x:Name="StrPageStartUp">
+			<DoubleAnimation BeginTime="0:0:0.5" Duration="0:0:0.5"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="TranslateX" To="0" />
+			<DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="ScaleX" To="1" />
+			<DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="ScaleY" To="1" />
+			</Storyboard>
+		<Storyboard x:Name="StrPageCloses">
+			<DoubleAnimation BeginTime="0:0:0.5" Duration="0:0:0.5"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="TranslateX" To="600" />
+			<DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="ScaleX" To="0.5" />
+			<DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3"  Storyboard.TargetName="TrnsfrmScale" Storyboard.TargetProperty="ScaleY" To="0.5" />
+		</Storyboard>
+		<DataTemplate x:Key="PictureTemplate">
+			<Grid>
+				<Grid.RowDefinitions>
+			    <RowDefinition Height="Auto" />
+			    <RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Border Padding="4" Margin="0,0,0,0" Background="{StaticResource PhoneAccentBrush}" CornerRadius="1" Canvas.ZIndex="2"><TextBlock Text="{Binding ImageName, Mode=TwoWay}" FontStyle="Italic" FontSize="24" /></Border>
+				<Image Source="{Binding ImageSource, Mode=TwoWay}" Grid.Row="1" />
+			</Grid>
+		</DataTemplate>
+		<Style x:Key="PivotPictureStyle" TargetType="controls:PivotItem">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+			<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="controls:PivotItem">
+						<Grid Background="{TemplateBinding Background}" CacheMode="BitmapCache" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="Pivot">
+									<VisualState x:Name="Right"/>
+									<VisualState x:Name="Left"/>
+									<VisualState x:Name="Center"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="PivotStyle" TargetType="controls:Pivot">
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="ItemsPanel">
+				<Setter.Value>
+					<ItemsPanelTemplate>
+						<Grid/>
+					</ItemsPanelTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="controls:Pivot">
+						<Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+							<Grid Background="{TemplateBinding Background}" CacheMode="BitmapCache" Grid.RowSpan="3"/>
+							<ContentPresenter ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}"/>
+							<controlsPrimitives:PivotHeadersControl x:Name="HeadersListElement" Grid.Row="1"/>
+							<ItemsPresenter x:Name="PivotItemPresenter" Margin="{TemplateBinding Padding}" Grid.Row="2"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</phone:PhoneApplicationPage.Resources>
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+	<phone:PhoneApplicationPage.RenderTransform>
+		<CompositeTransform x:Name="TrnsfrmScale" TranslateX="600" ScaleX="0.5" ScaleY="0.5"/>
+	</phone:PhoneApplicationPage.RenderTransform>
+
+	<phone:PhoneApplicationPage.DataContext>
+		<local:PictureAlbumVM/>
+	</phone:PhoneApplicationPage.DataContext>
+	
+  <phone:PhoneApplicationPage.ApplicationBar>
+    <shell:ApplicationBar x:Name="Application_Bar" IsVisible="True" IsMenuEnabled="False" Mode="Default" Opacity="0.785" BackgroundColor="{StaticResource PhoneAccentColor}">
+    	<shell:ApplicationBarIconButton x:Name="Btn_Back" IconUri="/Assets/AppBar/appbar.back.rest.png" Text="Back" Click="Btn_Back_Click"/>
+    	<shell:ApplicationBarIconButton x:Name="Btn_ShuffleImages" IconUri="/Assets/AppBar/appbar.save.rest.png" Text="Save" Click="Btn_SaveImages_Click"/>
+    	<shell:ApplicationBarIconButton x:Name="btn_SetAsLocakScreenWall" IconUri="/Assets/AppBar/favs.addto.png" Text="Loc Wall" Click="btn_SetAsLocakScreenWall_Click"/>
+    	<shell:ApplicationBarIconButton x:Name="btn_AddLocScreen" IconUri="/Assets/AppBar/feature.settings.png" Text="ADL" Click="btn_AddLocScreen_Click"/>
+    </shell:ApplicationBar>
+</phone:PhoneApplicationPage.ApplicationBar>
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<ProgressBar x:Name="prg_Operation" Grid.RowSpan="2"  VerticalAlignment="Top" Foreground="#FF424242" Value="0" Canvas.ZIndex="1" Margin="0,2,0,0" IsIndeterminate="{Binding IsBusy, Mode=TwoWay}" Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
+		<controls:Pivot x:Name="PvtAlbums" Title=""  Style="{StaticResource PivotStyle}" SelectionChanged="PvtAlbums_SelectionChanged">
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+			<controls:PivotItem  Style="{StaticResource PivotPictureStyle}" ContentTemplate="{StaticResource PictureTemplate}" />
+				
+	
+		</controls:Pivot>
+		<Grid x:Name="Grd_ImageSaveStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Width="200" Height="100" Opacity="0.01">
+			<Border BorderThickness="0" CornerRadius="20">
+				<Border.Background>
+					<LinearGradientBrush EndPoint="0,0.505" StartPoint="1,0.495">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Offset=".5"/>
+					</LinearGradientBrush>
+				</Border.Background>
+				<StackPanel Orientation="Vertical">
+					<TextBlock TextWrapping="Wrap" Text="Saved" FontFamily="Segoe UI" HorizontalAlignment="Center" FontSize="40" Foreground="White"/>
+					<TextBlock TextWrapping="Wrap" Text="Saved In Saved Folder" FontFamily="Segoe UI" Margin="0,10,0,0" FontSize="13.333" Foreground="#FFA6A6A6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+		</Grid>
+		<!--TitlePanel contains the name of the application and page title--><!--ContentPanel - place additional content here-->
+	</Grid>
+
+</phone:PhoneApplicationPage>
